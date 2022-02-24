@@ -1,0 +1,260 @@
+Session Plan Week1 (Linux +Git)
+
+Ubuntu Desktop 20.04(LTS)
+Ubuntu Server
+Ubuntu for IOT
+Ubuntu Cloud
+
+
+**************************************************Linux******************************************************
+Linux-
+
+  -Important to know hot about linux
+    
+    -Linux has 'root' user which is kind of super user and has power to delete anything itself.
+    -Linux is a 'CASE SENSITIVE' operating System(OS).
+      e.g. 'LS' is not equal to 'ls'
+      e.g. 'ABC.txt' is not the same as 'abc.txt'.
+
+    -'Linux Torvalds' did not develop linux OS. He did develop the 'Linux kernel'.
+    -Linux Kernel : is not an OS. It's middle layer between hardware & User(UI).
+    -Linux is all about CLI( Command-Line Interface ) and not the UI.
+      e.g. terminal or shell
+
+
+  -File System Format
+    
+    -FAT16(Windows)
+    -FAT32(Windows)
+    -NTFS(Windows/Latest)
+
+    -ext3(Ubuntu)
+    -ext4(Ubuntu)
+    -xfs(ubunut)
+    -ntfs(ubuntu) [stores data in chunks]
+    -fat(ubuntu)
+
+    Defragmentation
+ 
+
+  -Commands
+
+    -date
+    -man <command name>
+    //for documentation of specific command
+    -cal
+      -cal --help
+      //documentation with respect to 'cal'
+    -pwd
+    //to check current directory
+    -cd
+      -cd ..
+      //to go back in reverse in directory //in windows we use '-cd..' without space
+      -cd ../../../..
+      //recursively go back in directory
+    -mkdir
+    //to make directory
+    -ls
+    //to see folder/files in current directory
+      -ls -ll
+      //to see folder/files with more details
+      -ls --help
+      -ls -ltr
+      -ls -ll > <file name>
+      //append content of command 'ls -ll' in the <file name>
+      // '>' redirection command
+    -cp
+      -cp <file name> <path>
+      //to copy a file providing files name and path to which we have to copy
+      -cp -R <folder name> <path>
+      //to copy folders/files recursively
+
+  Press 'TAB' : To Auto correct the folder name/file name
+
+  What is Root :
+
+    -Root Account --> The most powerful user account.
+    -Root as '/' -->This is the first directory also known as 'root directory'.
+    -Root Home(/root) -->This is the Home Directory of the 'root user'.
+        -cd /root
+        -pwd
+        -ls
+
+  -Commands
+
+    -/home#groups
+    -mv
+      -mv <file name> <path>
+      //to move the file from one location to another
+      -mv -R <folder name> <path>
+      //to move folder from one location to another recursively
+      -mv abdpqr.png abdpqr.txt
+      //to change the file type
+    -rm
+      -rm <file name> <file name> .....
+      //to delete the file/files/folder
+      -rm -rf <file name>
+      //to remove the file/folder 'forcefully'
+      -rm --help
+    -unlink
+      -unlink <file name>
+      //only used to delete files
+
+    -cat
+      -cat <file name>
+      //to read the content of a file
+      -cat --help
+    -head
+      -head <file name>
+      //to see top 10 lines
+      -head -n <number> <file name>
+      //to see specific no. of lines mentioned from top
+      -head --help
+    -tail
+      -tail <file name>
+      //shows the bottom 10 lines
+      -tail -n <number> <file name>
+      //to see specific no. of lines mentioned from bottom
+      -tail --help
+    -sudo -i
+    //to go into root
+    -rmdir <folder name>
+    //to remove directory
+    -mkdir <file name>
+    //to make a new directory
+    -touch <file name>
+    //to create an empty file
+    -echo
+      -echo "message"
+      //to print the message on console
+      -echo "hi" > <file name>
+      //if file is not created it will create the file and place the content "hi" in the file
+      // '>' is a redirection command
+      -echo "hello" > <file name>
+      //if file is already created with some content then this command replace the content with "hello" 
+      -echo "there" >> <file name>
+      //to append the content of file with "there" we use ">>" without getting replace it will append the content
+
+  Editors :
+    nano editor :
+      -nano <file name>
+      //if file is not created it will create the file
+
+    vi editor :
+
+
+  Wild card characters-
+
+    ' * ' : represents zero or more characters
+
+      -ls abc*
+      -ls ab*
+      -ls abc*.txt
+      -ls abc*.*
+      -ls ab*.txt
+      -ls *3*.txt
+      //list file having 3 in it's name
+
+    ' ? ' : It represents the single char
+
+      -ls abc?pqr.txt
+      -ls ab???r.txt
+
+    ' [] ' : represents the range of char
+
+      -ls ab[cd12]*.*
+      -ls ab[def].txt
+
+  -Common commands
+
+    -alias <alias name>=<command name>
+    //to create shortcut for any command
+    -unalias <alias name>
+    //to remove the alias created
+    -hostname
+    //to see hostname, for the reason easy to remember hostname
+    -shutdown
+      -shutdown now
+      //system will shutdown
+      -shutdown -r now
+      //restart the system
+      -printenv
+        -printenv
+        //print all the environment variables
+        -MYKEY=MYVAL
+        //setting up a new variable in environment known as MYKEY
+        -echo $<env variable name>
+        //to get the value of env variable
+        -MYKEY=
+        //to nullify environment variable values
+      -free
+        -free -h
+        //to see RAM memory with human readability
+        //swap memory-extended memory(virtual)
+        -free --help
+        -free -m
+        -free -b
+        //in byes
+        -free -g
+        //for information of RAM memory in petabytes
+      -lscpu
+      //hardware configuration details
+      -df
+        -df -h
+        //used to heck physical storage availability
+        -df -h -x <file system/system file>
+          e.g. df -h -x squashfs
+      -'up arrow key' and 'down arrow key'
+      //to see history
+      -history
+      //list of history
+        -history -c
+        -history -w
+        //to delete history
+        -!<Number in command history>
+        //this will execute that command in the history
+
+      -[] : represents the range of char
+        -touch abc[1..9]pqr.txt
+        //will file with name starting with 'abc' and ending with 'pqr' in between 1 to 9 numbered files will geet created
+      -ifconfig
+      //network interface card details
+      -apt 
+      //has databased of all packages
+        -sudo apt install <software name to be installed>
+        //to install packeges
+        -man ifconfig
+        -sudo apt remove <software name to be removed>
+        //to delete the package
+      -apt-get
+      //works appox similar to 'apt'
+      -yum
+      //to install packages for cent-os
+      -dpkg
+        -dpkg <file path with file>
+        //to install the software provided the path
+      -sudo apt-get purge
+      //this will remove the configuration files if created by packages installed
+      -sudo apt clean
+      //cleans all local cache files which help in reinstallation
+      //cd/var/cache/archives/partial//
+      //removes the correpted files
+      -sudo apt update
+      //to get the information about the upgrable packages from the repository
+      -sudo get upgrade
+      //to actually upgrade/download the packages
+  
+
+  Symlink (Symbolic Links):
+    what is Inode?:
+      -pointer or number of a file on a harddrive
+      -Identification number of a file or folder in numeric format
+
+    Types:
+    1)Soft Symlink:
+    
+    2)Hard Symlink: 
+
+        
+
+
