@@ -1,7 +1,11 @@
-{
-    
-    "student_courses":
-    [
+
+
+>show databases;
+>show tables;
+>use student_courses;
+
+>db.student_courses.insertMany([
+
         {
         
             "_id" : ObjectId("621731425d1652ec8e1ef6a0"),
@@ -26,6 +30,4 @@
             "assignments" : "clientexam"
         }
         
-    ]
-
-}
+    ])
