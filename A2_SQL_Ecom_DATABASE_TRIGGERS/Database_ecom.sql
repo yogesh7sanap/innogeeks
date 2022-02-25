@@ -11,6 +11,9 @@ CREATE DATABASE ecom
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
 	
+
+	----------------------------------------table creation------------------------------------
+
 	--creating customers table
 	create table customers(
 		c_id serial primary key,
@@ -40,6 +43,9 @@ CREATE DATABASE ecom
 		p_id serial references products(p_id)
 	)
 	
+
+	-------------------------------------insert into -------------------------------------
+
 	---inserting data into customers table
 	
 	insert into customers(c_name,c_address) values ('nitin','pune'),
@@ -70,7 +76,8 @@ CREATE DATABASE ecom
 	select * from mtm_op
 	
 	
-	
+	-------------------------------function(returning/for trigger)--------------------------------
+
 	--function to perform update operation in products table using trigger
 	create or replace function update_prod_insert_mtm_op()
 	returns trigger
@@ -99,6 +106,8 @@ CREATE DATABASE ecom
 	
 	$$
 	
+	----------------------------------trigger-------------------------------------
+
 	--trigger to update products table before inserting in mtm_op table
 	create trigger insert_mtm_op_update_products
 	before insert on mtm_op 
@@ -111,6 +120,20 @@ CREATE DATABASE ecom
 	before insert on mtm_op 
 	for each row
 	execute procedure update_ord_insert_mtm_op()
+
+
+
+	-----------------------------------views---------------------------------------
+
+	--view to see count of customers having o_amount grater than 10000
+
+	create view customers_having_o_amount_greater_than_10000 as 
+	select count(c_id) as Customer_Count from customers where c_id in 
+	(select c_id from orders where o_amount>=10000);
+
+	--to see view(virtual table)
+	select * from customers_having_o_amount_greater_than_10000;
+	
 	
 	
 	
